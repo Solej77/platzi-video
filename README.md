@@ -18,3 +18,4 @@ Decidi comenzar con React por la increible comunidad (y esto significa, gran var
 * Add Images (npm install file-loader --save-dev)
 * PropTypes (npm install prop-types)
 * React Router (npm install react-router-dom --save)
+* Redux (npm install redux react-redux --save)
