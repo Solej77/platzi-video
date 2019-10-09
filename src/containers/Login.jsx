@@ -34,7 +34,7 @@ const Login = (props) => {
             name="email"
             className="input"
             type="text"
-            placeholder="Correoo"
+            placeholder="Correo"
             onChange={handleInput}
           />
           <input
