@@ -19,3 +19,4 @@ Decidi comenzar con React por la increible comunidad (y esto significa, gran var
 * PropTypes (npm install prop-types)
 * React Router (npm install react-router-dom --save)
 * Redux (npm install redux react-redux --save)
+* MD5 (npm install md5 --save)
