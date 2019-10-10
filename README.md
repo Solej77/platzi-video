@@ -20,3 +20,4 @@ Decidi comenzar con React por la increible comunidad (y esto significa, gran var
 * React Router (npm install react-router-dom --save)
 * Redux (npm install redux react-redux --save)
 * MD5 (npm install md5 --save)
+* classNames (npm install classnames)
