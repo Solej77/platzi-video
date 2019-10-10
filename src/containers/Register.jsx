@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { registerRequest } from '../actions';
 import '../assets/styles/components/Register.scss';
 
-const Register = () => {
-
+const Register = (props) => {
+  // se declara el estado inicial del componente
   const [form, setValues] = useState({
     email: '',
     name: '',
     password: '',
   });
 
+  // Funcion controladora de evento que se dispara cuando uno de los campos de formulario cambia su valor. (onChange)
   const handelInput = (event) => {
+    // Establezco el nuevo estado del componente segun los valores actuales de cada input, pero conservando los anteriores (destructuración)
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
 
+  // Función controladora de evento que se ejecuta tras dispararse el envio del formulario
   const handleSubmit = (event) => {
+    // evita el recargar la pagina
     event.preventDefault();
-    console.log(form);
+    // 6. Disparamos la acción registrar el usuario en el store
+    props.registerRequest(form);
+    // Simulamos un login exitoso, por eso mandamos directamente al home /
+    props.history.push('/');
   };
 
   return (
@@ -61,4 +70,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+// Establecer que acciones llevará a cabo este componente en el store
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+// Se conecta el componente con el store
+export default connect(null, mapDispatchToProps)(Register);
