@@ -13,7 +13,7 @@ export const loginRequest = (payload) => ({
   payload,
 });
 
-export const registerRequest = (payload) => ({
-  type: 'REGISTER_REQUEST',
+export const logoutRequest = (payload) => ({
+  type: 'LOGOUT_REQUEST',
   payload,
 });
