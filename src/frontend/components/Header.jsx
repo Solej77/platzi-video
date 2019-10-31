@@ -28,17 +28,27 @@ const Header = (props) => {
           ) : (
             <img src={userIcon} alt="" />
           )}
-          <p>Perfil</p>
+          <p>
+            Perfil
+          </p>
         </div>
         <ul>
           {hasUser ? (
-            <li><a href="/">{user.name}</a></li>
+            <li>
+              <a href="/">
+                {user.name}
+              </a>
+            </li>
           ) : (
             null
           )}
 
-          {hasUser ? (            
-            <li><a href="#logout" onClick={handleLogout}>Cerrar Sesión</a></li>
+          {hasUser ? (
+            <li>
+              <a href="#logout" onClick={handleLogout}>
+                Cerrar Sesión
+              </a>
+            </li>
           ) : (
             <li>
               <Link to="/login">

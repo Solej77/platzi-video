@@ -19,6 +19,8 @@ const Login = (props) => {
     });
   };
 
+  const spaceBlank = ' ';
+
   const handleSubmit = (event) => {
     event.preventDefault(); //para matar el proceso de envio de parametros por url
     props.loginRequest(form);
@@ -28,7 +30,9 @@ const Login = (props) => {
   return (
     <section className="login">
       <section className="login__container">
-        <h2>Inicia sesión</h2>
+        <h2>
+          Inicia sesión
+        </h2>
         <form className="login__container--form" onSubmit={handleSubmit}>
           <input
             name="email"
@@ -44,11 +48,15 @@ const Login = (props) => {
             placeholder="Contraseña"
             onChange={handleInput}
           />
-          <button className="button">Iniciar sesión</button>
+          <button className="button">
+            Iniciar sesión
+          </button>
           <div className="login_container--remember-me">
             <input type="checkbox" name="" id="cbox1" value="checkbos" />
           Recuérdame
-            <a href="/">Olvide mi contraseña</a>
+            <a href="/">
+              Olvide mi contraseña
+            </a>
           </div>
         </form>
         <section className="login__container--social-media">
@@ -62,7 +70,8 @@ const Login = (props) => {
           </div>
         </section>
         <p className="login__container--register">
-        No tienes ninguna cuenta {' '}
+          No tienes ninguna cuenta
+          {spaceBlank}
           <Link to="/register">
             Registrate
           </Link>

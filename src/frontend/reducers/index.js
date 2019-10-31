@@ -36,7 +36,7 @@ const reducer = (state, action) => {
         // busqueda del source dentro del estado inicial, primero busca en trends y despues en originals y si no lo encuentra devuele un arreglo vacio
         playing: state.trends.find((item) => item.id === Number(action.payload)) ||
         state.original.find((item) => item.id === Number(action.pyload)) ||
-        []
+        [],
       };
 
     default:

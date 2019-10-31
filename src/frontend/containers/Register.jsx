@@ -34,7 +34,9 @@ const Register = (props) => {
   return (
     <section className="registro">
       <section className="registro__container">
-        <h2>Registrate</h2>
+        <h2>
+          Registrate
+        </h2>
         <form action="" className="registro__container--form" onSubmit={handleSubmit}>
           <input
             name="name"
@@ -57,7 +59,9 @@ const Register = (props) => {
             placeholder="password"
             onChange={handelInput}
           />
-          <button className="button">Registrarme</button>
+          <button className="button">
+            Registrarme
+          </button>
         </form>
         <p className="registro__container--register">
           Ya tienes una cuenta
