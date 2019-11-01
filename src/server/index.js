@@ -1,3 +1,5 @@
+//Nos ayuda a ignorar los estilos para que no los considere del lado del servidor
+require('ignore-styles');
 // babel register crea un bind de cualquier paquete que necesitemos
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('@babel/register')({

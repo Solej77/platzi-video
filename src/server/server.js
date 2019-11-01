@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import webpack from 'webpack';
+import main from './routes/main';
 
 dotenv.config();
 
@@ -29,8 +30,7 @@ if (ENV === 'development') {
 }
 
 //COn el asterisco indicamos que puede tomar en cuenta cualquie ruta
-app.get('*', (req, res) => {
-});
+app.get('*', main);
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);
