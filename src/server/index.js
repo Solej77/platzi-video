@@ -8,5 +8,11 @@ require('@babel/register')({
   presets: ['@babel/preset-env', '@babel/preset-react'],
 });
 
+// Ayuda al servidor a indicar donde se encuentran los assets de la aplicación
+require('asset-require-hook')({
+  extensions: ['jpg', 'png', 'gif'],
+  name: '/assets/[hash].[ext]',
+});
+
 // eslint-disable-next-line import/no-unresolved
 require('./server.js');
