@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
@@ -52,20 +53,22 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
-      },
-      {
         test: /\.(s*)css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader',
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `@import 'src/frontend/assets/styles/Vars.scss'; 
+                            @import 'src/frontend/assets/styles/Media.scss';
+                            @import 'src/frontend/assets/styles/Base.scss';
+                           `,
+            },
+          },
         ],
       },
       {
