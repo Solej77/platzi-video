@@ -13,7 +13,10 @@ import App from './routes/App';
  * a eventos que solo existen en el window
  */
 if (typeof window !== 'undefined') {
-  const composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+  let composeEnhacers;
+  // Si estamos en el entorno peoduccion unicamente vamos a llmar al compose, de lo contrario llamamos a redux dev tools
+  if (process.env.NODE_ENV === 'production') composeEnhacers = compose;
+  else composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
   const preloadedState = window.__PRELOADED_STATE__;
   const store = createStore(reducer, preloadedState, composeEnhacers());
   // con esto indicamos que hay una hostoria

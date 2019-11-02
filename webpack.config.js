@@ -3,12 +3,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+// esto va a poner en contexto nuestra variable de desarrollo
+dotenv.config();
+
+const isProd = (process.env.NODE_ENV === 'prodiction');
 
 module.exports = {
+  devtool: isProd ? 'hidden-source-map' : 'cheap-source-map',
   entry: './src/frontend/index.js',
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   output: {
-    path: '/',
+    path: isProd ? path.join(process.cwd(), './src/server/public') : '/',
     filename: 'assets/app.js',
     publicPath: '/',
   },
@@ -16,6 +23,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   optimization: {
+    minimizer: isProd ? [new TerserPlugin()] : [],
     splitChunks: {
       chunks: 'async',
       name: true,
