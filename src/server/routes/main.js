@@ -37,7 +37,8 @@ const main = (req, res, next) => {
       </Provider>,
     );
 
-    res.send(render(html));
+    const preloadedState = store.getState();
+    res.send(render(html, preloadedState));
   } catch (err) {
     next(err);
   }
