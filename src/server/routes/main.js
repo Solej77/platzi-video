@@ -37,6 +37,7 @@ const main = (req, res, next) => {
       </Provider>,
     );
 
+    // Pasamos el preloadedState desde el server (dentro de la estructura del proyecto) al render
     const preloadedState = store.getState();
     res.send(render(html, preloadedState));
   } catch (err) {
