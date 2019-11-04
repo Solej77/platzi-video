@@ -32,6 +32,7 @@ if (ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
+  console.log(`Loading ${ENV} config`);
   // configuracion para entrono de producción
   app.use(helmet());
   // doc https://helmetjs.github.io/docs/crossdomain/
