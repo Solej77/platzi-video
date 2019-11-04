@@ -4,11 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
+const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 // esto va a poner en contexto nuestra variable de desarrollo
 dotenv.config();
 
-const isProd = (process.env.NODE_ENV === 'prodiction');
+const isProd = (process.env.NODE_ENV === 'production');
 
 module.exports = {
   devtool: isProd ? 'hidden-source-map' : 'cheap-source-map',
@@ -105,5 +107,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/app.css',
     }),
+    isProd ? new CompressionPlugin({
+      test: /\.js$|\.css$/,
+      filename: '[path].gz',
+    }) : [],
   ],
 };
